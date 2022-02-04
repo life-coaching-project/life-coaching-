@@ -1,22 +1,16 @@
 import styles from "./styles.module.css";
-import { Link, useNavigate } from "react-router-dom";
-
+import { useHistory , Switch, Route , useNavigate  } from "react-router-dom";
+import NavBar from "./NavBar"
 const Main = () => {
   const navigate = useNavigate();
   const handleLogout = () => {
     navigate("/");
   };
-
+  
+//  const history = useHistory();
   return (
-    <div className={styles.main_container}>
-      <nav className={styles.navbar}>
-        <h1>Welcome</h1>
-        <li>Profil</li>
-        <li>test</li>
-        <button className={styles.white_btn} onClick={handleLogout}>
-          Logout
-        </button>
-      </nav>
+    <div >
+       <NavBar/>
     </div>
   );
 };
