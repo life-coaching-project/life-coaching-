@@ -4,6 +4,7 @@ import Signup from "./components/Singup";
 import Login from "./components/Login";
 import Feed from "./components/Main/Feed"
 import Profil from "./components/Main/Profil";
+import PostBlogs from "./components/Main/PostBlogs"
 function App() {
 	//const user = 1;
 
@@ -13,6 +14,7 @@ function App() {
 			{ <Route path="/login" exact element={<Main />} />}
 			  <Route path="/Feed"  element={<Feed />} />
 			  <Route path="/Profil" element={<Profil />} />
+			  <Route path="/PostBlogs" element={<PostBlogs />} />
 			<Route path="/signup" exact element={<Signup />} />
 			<Route path="/" exact element={<Login />} />
 			<Route path="/" element={<Navigate replace to="/login" />} />

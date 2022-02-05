@@ -5,14 +5,14 @@ const itemSchema = new mongoose.Schema({
     title: String,
     text: String,
     Image:String,
-    createdAt: { type : Date, default: Date.now }
+    createdAt: String
   });
 
 
-  const Item = mongoose.model("Item", itemSchema);
+  const Blog = mongoose.model("Blog", itemSchema);
 
  var selectAll = function(callback) {
-    Item.find({}, function(err, items) {
+   Blog.find({}, function(err, items) {
       if(err) {
         callback(err, null);
       } else {
@@ -22,7 +22,7 @@ const itemSchema = new mongoose.Schema({
   };
 
  var create = function(data, callback) {
-    Item.create(data, function(err, items) {
+    Blog.create(data, function(err, items) {
       if(err) {
         callback(err, null);
       } else {
@@ -32,7 +32,7 @@ const itemSchema = new mongoose.Schema({
   };
   
  var findOneAndDelete = function (id, callback) {
-    Item.findByIdAndDelete(id, function(err, data){
+    Blog.findByIdAndDelete(id, function(err, data){
       if(err) {
         callback(err, null);
       } else {
@@ -41,5 +41,5 @@ const itemSchema = new mongoose.Schema({
     })
   }
   
-  module.exports = { Item , create , findOneAndDelete ,selectAll }
+  module.exports = { Blog , create , findOneAndDelete ,selectAll }
 

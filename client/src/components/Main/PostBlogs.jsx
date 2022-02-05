@@ -1,9 +1,7 @@
 import React from 'react'
 import axios from 'axios'
-import ItemsBlogs from './ItemsBlogs.jsx'
-import UploadImage from './UploadImage.jsx'
 import $ from 'jquery'
-
+import NavBar from './NavBar'
 class PostBlogs extends React.Component {
     constructor(props) {
         super(props)
@@ -50,6 +48,7 @@ class PostBlogs extends React.Component {
     render() {
         return (
             <div>
+                <NavBar/>
                 <div>
                     <label htmlFor="input1">Title: </label>
                     <br />
@@ -59,11 +58,11 @@ class PostBlogs extends React.Component {
                     <br />
                     <textarea type='text' name='text' id='input1' value={this.state.text} onChange={this.handleChange} placeholder='Write your blog here...' />
                     <br />
-                    <UploadImage />
+                  
                     <button type='button' onClick={() => { this.handleSubmit()} }> Post </button>
                 </div>
                 <div>
-                    <ItemsBlogs items={this.state.items}/>
+                  
                 </div>
             </div>
 
