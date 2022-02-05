@@ -1,32 +1,38 @@
 const mongoose = require("mongoose");
-const mongoUri = "mongodb://localhost/test";
+const mongoUri = "mongodb://localhost/mvp";
 
-mongoose.connect(mongoUri, { useUnifiedTopology: true, useNewUrlParser: true }, () => {
-  console.log("db connected");
-});
+mongoose.connect(
+  mongoUri,
+  { useUnifiedTopology: true, useNewUrlParser: true },
+  () => {
+    console.log("db connected");
+  }
+);
 const db = mongoose.connection;
 
-module.exports = db
+module.exports = db;
 
 const itemSchema = new mongoose.Schema({
   title: String,
   text: String,
-  Image:String,
-  createdAt: { type : Date, default: Date.now }
+  Image: String,
+  createdAt: { type: Date, default: Date.now },
 });
 const Item = mongoose.model("Item", itemSchema);
-var LifeCheckSchema = mongoose.Schema({
-  id: Number,
-  question1: String,
-  option1: String,
-  option2: String,
-  option3: String,
-  option4: String,
-});
-var Check = mongoose.model("Check", LifeCheckSchema);
-var selectAll = function(callback) {
-  Item.find({}, function(err, items) {
-    if(err) {
+
+// var gettingTheSurveyQuestion = function (callback) {
+//   Check.find({}, (err, question) => {
+//     if (err) {
+//       callback(err, null);
+//     } else {
+//       callback(null, question);
+//     }
+//   });
+// };
+
+var selectAll = function (callback) {
+  Item.find({}, function (err, items) {
+    if (err) {
       callback(err, null);
     } else {
       callback(null, items);
@@ -34,9 +40,9 @@ var selectAll = function(callback) {
   });
 };
 
-var create = function(data, callback) {
-  Item.create(data, function(err, items) {
-    if(err) {
+var create = function (data, callback) {
+  Item.create(data, function (err, items) {
+    if (err) {
       callback(err, null);
     } else {
       callback(null, items);
@@ -45,13 +51,18 @@ var create = function(data, callback) {
 };
 
 var findOneAndDelete = function (id, callback) {
-  Item.findByIdAndDelete(id, function(err, data){
-    if(err) {
+  Item.findByIdAndDelete(id, function (err, data) {
+    if (err) {
       callback(err, null);
     } else {
       callback(null, data);
     }
-  })
-}
+  });
+};
 
-module.exports = {create, findOneAndDelete ,selectAll, Item,Check};
+module.exports = {
+  create,
+  findOneAndDelete,
+  selectAll,
+  Item,
+};
