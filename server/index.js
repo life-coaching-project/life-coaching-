@@ -1,12 +1,13 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const connection = require("./db");
 const userRoutes = require("./routes/users");
 const authRoutes = require("./routes/auth");
 const surveyRoutes = require("./routes/survey");
 // const Check = require("./routes/survey.js");
 const mongoose = require("mongoose");
+// const blogsCrud = require("./routes/PostB")
+
 // database connection
 const mongoUri = "mongodb://localhost/test";
 
