@@ -1,8 +1,8 @@
-import React from "react";
-import axios from "axios";
-import $ from "jquery";
-import NavBar from "./NavBar";
-import "./PostBlog.css";
+
+import React from 'react'
+import axios from 'axios'
+import $ from 'jquery'
+import NavBar from './NavBar'
 class PostBlogs extends React.Component {
   constructor(props) {
     super(props);
@@ -39,11 +39,7 @@ class PostBlogs extends React.Component {
     });
   }
 
-  handleSubmit() {
-    axios.post("/PostBlogs", this.state).then(({ data }) => {
-      console.log("blogs", data);
-    });
-  }
+
 
   render() {
     return (

@@ -1,4 +1,5 @@
 import styles from "./styles.module.css";
+
 import { useNavigate } from "react-router-dom";
 import NavBar from "./NavBar";
 import { useState, useEffect } from "react";
@@ -6,6 +7,7 @@ import axios from "axios";
 
 const Main = () => {
   const navigate = useNavigate();
+
   const [servey, setservey] = useState([]);
   const [cout,setcout] = useState(0);
   
