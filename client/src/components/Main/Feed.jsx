@@ -5,10 +5,9 @@ const Feed = () => {
   const navigate = useNavigate();
   return (
     <div>
-     <div><NavBar /></div>
-     
-
-     
+      <div>
+        <NavBar />
+      </div>
     </div>
   );
 };

@@ -7,7 +7,7 @@ import axios from "axios";
 const Main = () => {
   const navigate = useNavigate();
   const [servey, setservey] = useState([]);
-  const [cout,setcout] = useState(1);
+  const [cout,setcout] = useState(0);
   
 
   useEffect(() => {
@@ -22,7 +22,6 @@ const Main = () => {
       .catch((error) => console.log(error));
   }, []);
   var elem =servey[cout]
-  
   return (
     <div >
       <NavBar />

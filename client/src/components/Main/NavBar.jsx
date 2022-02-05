@@ -1,140 +1,113 @@
-import React from "react";
-import { useHistory , Switch, Route , useNavigate  } from "react-router-dom";
-import styles from "./styles.module.css";
+import React, { useEffect } from "react";
+import "./Navbar.css";
+import { NavLink } from "react-router-dom";
+import $ from "jquery";
 
+const Navbar = () => {
+  function animation() {
+    var tabsNewAnim = $("#navbarSupportedContent");
+    var activeItemNewAnim = tabsNewAnim.find(".active");
+    var activeWidthNewAnimHeight = activeItemNewAnim.innerHeight();
+    var activeWidthNewAnimWidth = activeItemNewAnim.innerWidth();
+    var itemPosNewAnimTop = activeItemNewAnim.position();
+    var itemPosNewAnimLeft = activeItemNewAnim.position();
+    $(".hori-selector").css({
+      top: itemPosNewAnimTop.top + "px",
+      left: itemPosNewAnimLeft.left + "px",
+      height: activeWidthNewAnimHeight + "px",
+      width: activeWidthNewAnimWidth + "px",
+    });
+    $("#navbarSupportedContent").on("click", "li", function (e) {
+      $("#navbarSupportedContent ul li").removeClass("active");
+      $(this).addClass("active");
+      var activeWidthNewAnimHeight = $(this).innerHeight();
+      var activeWidthNewAnimWidth = $(this).innerWidth();
+      var itemPosNewAnimTop = $(this).position();
+      var itemPosNewAnimLeft = $(this).position();
+      $(".hori-selector").css({
+        top: itemPosNewAnimTop.top + "px",
+        left: itemPosNewAnimLeft.left + "px",
+        height: activeWidthNewAnimHeight + "px",
+        width: activeWidthNewAnimWidth + "px",
+      });
+    });
+  }
 
-const NavBar = () => {
-    const navigate = useNavigate();
+  useEffect(() => {
+    animation();
+    $(window).on("resize", function () {
+      setTimeout(function () {
+        animation();
+      }, 500);
+    });
+  }, []);
+
   return (
+    <nav className="navbar navbar-expand-lg navbar-mainbg">
+      <NavLink className="navbar-brand navbar-logo" to="/" exact>
+        Welcome
+      </NavLink>
 
-    <div>
-      <div>
-        <div>
-          <nav className="navbar navbar-expand-lg navbar-light bg-wight" >
-            <div className="container-fluid">
-              <button
-                className="navbar-toggler"
-                type="button"
-                data-mdb-toggle="collapse"
-                data-mdb-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-              >
-                <i className="fas fa-bars"></i>
-              </button>
+      <button
+        className="navbar-toggler"
+        onClick={function () {
+          setTimeout(function () {
+            animation();
+          });
+        }}
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i className="fas fa-bars text-white"></i>
+      </button>
 
-              <div
-                className="collapse navbar-collapse"
-                id="navbarSupportedContent"
-              >
-                <a className="navbar-brand mt-2 mt-lg-0" href="#">
-                  <img
-                    src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
-                    height="15"
-                    alt="MDB Logo"
-                    loading="lazy"
-                  />
-                </a>
-                <ul className="navbar-nav me-auto mb-1 mb-lg-3">
-                  <li className="nav-item">
-                    <a className="nav-link" href="#" onClick={()=>{navigate('/Feed')}}>
-                      Feed
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link" href="#" onClick={()=>{navigate('/PostBlogs')}}>
-                      Post Blogs
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link" href="#" onClick={()=>{navigate('/AboutUs')}}>
-                      About us
-                    </a>
-                  </li>
-                </ul>
-              </div>
+      <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul className="navbar-nav ml-auto">
+          <div className="hori-selector">
+            <div className="left"></div>
+            <div className="right"></div>
+          </div>
 
-              <div className="d-flex align-items-center">
-                <a className="text-reset me-1" href="#">
-                  {/* <i className="fas fa-shopping-cart"></i> */}
-                </a>
+          <li className="nav-item active">
+            <NavLink className="nav-link" id="a" to="/Profil" exact>
+              <i className="fas fa-tachometer-alt"></i>Profil
+            </NavLink>
+          </li>
 
-                <div className="dropdown">
-                  <a
-                    className="text-reset me-8 dropdown-toggle hidden-arrow"
-                    href="#"
-                    id="navbarDropdownMenuLink"
-                    role="button"
-                    data-mdb-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    <i className="fas fa-bell"></i>
-                    <span className="badge rounded-pill badge-notification bg-danger">
-                      1
-                    </span>
-                  </a>
-                  <ul
-                    className="dropdown-menu dropdown-menu-end"
-                    aria-labelledby="navbarDropdownMenuLink"
-                  >
-                    <li>
-                      <a className="dropdown-item" href="#">
-                        Some news
-                      </a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item" href="#">
-                        Another news
-                      </a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item" href="#">
-                        Something else here
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div className="dropdown">
-                  <a
-                    className="dropdown-toggle d-flex align-items-center hidden-arrow"
-                    href="#"
-                    id="navbarDropdownMenuAvatar"
-                    role="button"
-                    data-mdb-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    <img
-                      src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
-                      className="rounded-circle"
-                      height="25"
-                      alt="Black and White Portrait of a Man"
-                      loading="lazy"
-                    />
-                  </a>
-                  <ul
-                    className="dropdown-menu dropdown-menu-end"
-                    aria-labelledby="navbarDropdownMenuAvatar"
-                  >
-                    <li>
-                      <a className="dropdown-item" href="#" onClick={()=>{navigate('/Profil')}}>
-                        Profil
-                      </a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item" href="#" onClick={()=>{navigate('/')}}>
-                        Logout
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </nav>
-        </div>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/PostBlogs" exact>
+              <i className="far fa-address-book"></i>Create Blog
+            </NavLink>
+          </li>
+
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/Feed" exact>
+              <i className="far fa-clone"></i>Feed
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/login" exact>
+              <i className="far fa-chart-bar"></i>Survey
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/AboutUs" exact>
+              <i className="far fa-copy"></i>Contact Us
+            </NavLink>
+          </li>
+          
+          <li className="nav-item" id='log'>
+            <NavLink className="nav-link" to="/" exact>
+              <i className="far fa-clone"></i>Logout
+            </NavLink>
+          </li>
+        </ul>
       </div>
-    </div>
+    </nav>
   );
 };
-
-export default NavBar;
+export default Navbar;
