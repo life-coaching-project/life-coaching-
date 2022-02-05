@@ -1,4 +1,5 @@
 import styles from "./styles.module.css";
+
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
@@ -8,13 +9,6 @@ const Main = () => {
   const handleLogout = () => {
     navigate("/");
   };
-
-  // useEffect(() => {
-  //   axios.get("/api/survey/getthequestion").then(({response}) => {
-  //     console.log("hola",response);
-  //   })
-  // });
-
   const [loading, setLoading] = useState(true);
   const [servey, setservey] = useState([]);
 
