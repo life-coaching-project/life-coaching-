@@ -1,25 +1,21 @@
 import styles from "./styles.module.css";
+
 import { useNavigate } from "react-router-dom";
+import NavBar from "./NavBar";
+import { useState, useEffect } from "react";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
 
 const Main = () => {
   const navigate = useNavigate();
-  const handleLogout = () => {
-    navigate("/");
-  };
 
-  // useEffect(() => {
-  //   axios.get("/api/survey/getthequestion").then(({response}) => {
-  //     console.log("hola",response);
-  //   })
-  // });
-
-  const [loading, setLoading] = useState(true);
   const [servey, setservey] = useState([]);
   const questions = () => {
     console.log("hhhhhhhhhhh", servey[1][0]);
   };
+
+  const [cout,setcout] = useState(0);
+  
+
 
   useEffect(() => {
     console.log("zzzzzzzzzzzzzzz");
@@ -33,18 +29,11 @@ const Main = () => {
       .then(() => console.log("====", servey))
       .catch((error) => console.log(error));
   }, []);
-
+  var elem =servey[cout]
   return (
-    <div className={styles.main_container}>
-      <nav className={styles.navbar}>
-        <h1>Welcome</h1>
-        <li>Profil</li>
-        <li>Survey</li>
-        <button></button>
-        <button className={styles.white_btn} onClick={handleLogout}>
-          Logout
-        </button>
-      </nav>
+    <div >
+      <NavBar />
+   {console.log("elem",elem)}
       <div>
         <div>
           <h2>Life check survey</h2>
@@ -57,6 +46,7 @@ const Main = () => {
               <div>{item.option4}</div>
             </div>
           ))}
+
         </div>
       </div>
     </div>
