@@ -1,16 +1,16 @@
 import styles from "./styles.module.css";
 
 import { useNavigate } from "react-router-dom";
+import NavBar from "./NavBar";
+import { useState, useEffect } from "react";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
 
 const Main = () => {
   const navigate = useNavigate();
-  const handleLogout = () => {
-    navigate("/");
-  };
-  const [loading, setLoading] = useState(true);
+
   const [servey, setservey] = useState([]);
+  const [cout,setcout] = useState(0);
+  
 
   useEffect(() => {
     console.log("zzzzzzzzzzzzzzz");
@@ -23,29 +23,21 @@ const Main = () => {
       .then(() => console.log("====", servey))
       .catch((error) => console.log(error));
   }, []);
-
+  var elem =servey[cout]
   return (
-    <div className={styles.main_container}>
-      <nav className={styles.navbar}>
-        <h1>Welcome</h1>
-        <li>Profil</li>
-        <li>Survey</li>
-        <button></button>
-        <button className={styles.white_btn} onClick={handleLogout}>
-          Logout
-        </button>
-      </nav>
+    <div >
+      <NavBar />
+   {console.log("elem",elem)}
       <div>
         <div>
-          {loading && <div>Loading</div>}
-          {!loading && (
-            <div>
-              <h2>Doing stuff with data</h2>
-              {servey.map((item) => (
-                <span>{item.question}</span>
-              ))}
-            </div>
-          )}
+          <div >
+            {servey.map((item) => (
+              <div className={styles.card}>
+              <li>{item.question}</li>
+              <input /><button>Confirm</button>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

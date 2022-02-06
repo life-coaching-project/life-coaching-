@@ -6,8 +6,7 @@ const Feed = () => {
   return (
     <div>
      <div><NavBar /></div>
-     
-
+    
      
     </div>
   );
