@@ -8,7 +8,6 @@ const itemSchema = new mongoose.Schema({
     createdAt: { type : Date, default: Date.now }
   });
 
-
   const Item = mongoose.model("Item", itemSchema);
 
  var selectAll = function(callback) {
