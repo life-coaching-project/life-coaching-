@@ -6,7 +6,11 @@ var LifeCheckSchema = mongoose.Schema({
   option3: String,
   option4: String,
 });
+var feedbackSchema = mongoose.Schema({
+  thefeedback: String,
+});
 var Check = mongoose.model("Check", LifeCheckSchema);
+var feedback = mongoose.model("feedback", feedbackSchema);
 var gettingTheSurveyQuestion = async (req, res) => {
   try {
     let questions = await Check.find();
@@ -16,7 +20,14 @@ var gettingTheSurveyQuestion = async (req, res) => {
     res.send(error);
   }
 };
-
+var gettingTheSurveyFeedback = async (req, res) => {
+  try {
+    let feedbacks = await feedback.find();
+    res.send(feedbacks);
+  } catch (error) {
+    res.send(error);
+  }
+};
 var insertthequestion = function (website, callback) {
   // var item = new Item(website);
   Check.create(website, (err, items) => {
@@ -27,4 +38,10 @@ var insertthequestion = function (website, callback) {
     }
   });
 };
-module.exports = { Check, gettingTheSurveyQuestion, insertthequestion };
+module.exports = {
+  Check,
+  gettingTheSurveyQuestion,
+  insertthequestion,
+  gettingTheSurveyFeedback,
+  feedback,
+};

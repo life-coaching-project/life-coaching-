@@ -31,15 +31,15 @@ const Login = () => {
     try {
       const url = "http://localhost:3000/api/auth";
       await axios.post(url, data).then((response) => {
-        if (response.data === "Invalid Password" ||response.data === "Invalid Email or Password" ) {
+        if (
+          response.data === "Invalid Password" ||
+          response.data === "Invalid Email or Password"
+        ) {
           alert("Invalid Password");
           navigate("/");
-        }else if( response.data === "logged in successfully")
-		navigate("/login");
-        
+        } else if (response.data === "logged in successfully")
+          navigate("/login");
       });
-  
-      
     } catch (error) {
       if (
         error.response &&

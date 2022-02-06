@@ -1,5 +1,4 @@
 const db = require("../server/models/survey.js");
-
 const mongoose = require("mongoose");
 const mongoUri = "mongodb://localhost/test";
 
@@ -110,9 +109,26 @@ var questions = [
     option4: "Yes I realize that all the time to the point of feeling helpless",
   },
 ];
-
-// for (var i = 0; i < questions.length; i++) {
-// }
-const insert = () => db.Check.insertMany(questions);
-insert();
+var feedbacks = [
+  {
+    thefeedback:
+      "thank you for filling our survey seriously; it appears to us after carefully reviewing your answers that more attentivness is needed for the emotional aspect of your life which is why due  to our review more emotional life articles will be at your feed disposal and in time your life will get everything in place , we care for you <3 ",
+  },
+  {
+    thefeedback:
+      "thank you for filling our survey seriously; it appears to us after carefully reviewing your answers that more attentivness is needed for the social aspect of your life which is why due  to our review more social life articles will be at your feed disposal and in time your life will get everything in place, we care for you <3",
+  },
+  {
+    thefeedback:
+      "thank you for filling our survey seriously; it appears to us after carefully reviewing your answers that more attentivness is needed for the physical aspect of your life which is why due  to our review more emotional life articles will be at your feed disposal and in time your life will get everything in place, we care for you <3",
+  },
+  {
+    thefeedback:
+      "thank you for filling our survey seriously; it appears to us after carefully reviewing your answers that more attentivness is needed for the career aspect of your life which is why due  to our review more emotional life articles will be at your feed disposal and in time your life will get everything in place, we care for you <3",
+  },
+];
+// for (var i = 0; i < feedbacks.length; i++) {}
+// const insert = () => db.feedback.insertMany(feedbacks);
+// insert();
 module.exports.questions = questions;
+module.exports.feedbacks = feedbacks;
