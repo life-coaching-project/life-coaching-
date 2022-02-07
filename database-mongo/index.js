@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const mongoUri = "mongodb://localhost/mvp";
+const mongoUri = "mongodb://localhost/test";
 
 mongoose.connect(
   mongoUri,

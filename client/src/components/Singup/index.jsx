@@ -10,7 +10,7 @@ const Signup = () => {
     email: "",
     password: "",
   });
-  const [error, setError] = useState("");
+  const error = "";
   const navigate = useNavigate();
 
   const handleChange = ({ currentTarget: input }) => {
@@ -23,16 +23,10 @@ const Signup = () => {
     try {
       const url = "http://localhost:3000/api/users";
       const { data: res } = await axios.post(url, data);
-      navigate("/login");
+      navigate("/");
       console.log(res.message);
-    } catch (error) {
-      if (
-        error.response &&
-        error.response.status >= 400 &&
-        error.response.status <= 500
-      ) {
-        setError(error.response.data.message);
-      }
+    } catch (err) {
+      console.log(err);
     }
   };
 

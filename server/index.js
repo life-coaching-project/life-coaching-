@@ -4,6 +4,7 @@ const cors = require("cors");
 const userRoutes = require("./routes/users");
 const authRoutes = require("./routes/auth");
 const surveyRoutes = require("./routes/survey");
+const Blogs = require("./routes/PostB");
 // const Check = require("./routes/survey.js");
 const mongoose = require("mongoose");
 // const blogsCrud = require("./routes/PostB")
@@ -25,6 +26,7 @@ app.use(cors());
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/survey", surveyRoutes);
+app.use("/api/PostBlogs", Blogs);
 const port = 3000;
 app.listen(
   port,
