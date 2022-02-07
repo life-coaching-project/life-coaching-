@@ -1,0 +1,33 @@
+body {
+  background: aliceblue;
+}
+h2 {
+  font-size: 30px;
+  text-align: center;
+  color: #333333;
+  margin-bottom: 50px;
+}
+.card {
+  background: #fff;
+  box-shadow: 0 8px 30px -7px #c9dff0;
+  margin: 0 20px;
+  padding: 0 10px;
+  border-radius: 20px;
+  border: 0;
+}
+#img-top{
+
+  height:300px;
+  width: 300px;
+  max-width: 100px;
+  border-radius: 100%;
+  margin: 15px auto 0;
+  box-shadow: 0 8px 20px -4px #95abbb;
+  width: 100px;
+  height: 100px;
+}
+#grid{
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+   
+}

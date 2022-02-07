@@ -1,0 +1,110 @@
+/* General Rules     */
+
+/* === VARS === */
+:root {
+  /* === COLORS === */
+  --primary: hsl(185, 75%, 39%);
+  --secondary: hsl(229, 23%, 23%);
+  --tertiary: hsl(227, 10%, 46%);
+
+  --neutral: hsl(0, 0%, 59%);
+
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+#t{
+  size: 12px; 
+}
+body {
+  font-family: "Kumbh Sans", sans-serif;
+  background-color: var(--primary);
+  text-align: center;
+
+  background-image: url("https://raw.githubusercontent.com/gist/a-sauvaget/f52d838d2f167c0311200c17640d2929/raw/0f534b7614fcac9e6963de24ac10b728712f3597/bg-pattern-top.svg"),
+    url("https://raw.githubusercontent.com/gist/a-sauvaget/f52d838d2f167c0311200c17640d2929/raw/0f534b7614fcac9e6963de24ac10b728712f3597/bg-pattern-bottom.svg");
+  background-repeat: no-repeat, no-repeat;
+  /* == Desktop === */
+  background-position: -30% 60%, 120% -60%;
+}
+
+@media screen and (max-width: 375px) {
+  body {
+    background-position: 135% 60%, -20% -95%;
+  }
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* === CARD === */
+.card {
+  width: 98%;
+  height: 100%;
+  background: white no-repeat top
+    url(https://raw.githubusercontent.com/gist/a-sauvaget/f52d838…/raw/0f534b7…/bg-pattern-card.svg);
+  position: relative;
+  margin: 0 auto;
+  border-radius: 25px;
+  top: 0vh;
+ 
+}
+#img{
+ border-radius:50% ;
+ height: 400px;
+ width: 350px;
+}
+.card--img {
+  position: absolute;
+  top: 90px;
+  left: 127px;
+  border-radius: 50%;
+  border: 5px solid white;
+}
+
+.card--title {
+  padding-top: 200px;
+  font-size: 18px;
+}
+
+.card--span {
+  font-weight: 400;
+  color: var(--neutral);
+}
+
+.card--subtitle {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--neutral);
+}
+
+.card--list {
+  border-top: solid 1px var(--neutral);
+  display: flex;
+  justify-content: space-around;
+  padding-top: 25px;
+}
+
+.card--p-stat {
+  font-weight: 700;
+}
+
+.card--p-type {
+  font-weight: 400;
+  font-size: 15px;
+  color: var(--neutral);
+}
+
+/* === Frontend mentor === */
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  position: fixed;
+  bottom: 1%;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
