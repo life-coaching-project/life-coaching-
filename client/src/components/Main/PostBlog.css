@@ -5,7 +5,8 @@ body {
   margin: 0px;
   color: #2c3e50;
   background-color: #ecf0f1;
-  font-size: 1.1em;
+  font-size: 1.7em;
+  line-height: 2.1;
 }
 
 h2 {
@@ -65,7 +66,7 @@ button {
   border: none;
   border-radius: 3px;
   font-family: "PT Serif", sans-serif;
-  color: #ecf0f1;
+  color: #3BB19B;
   background-color: #e74c3c;
 }
 

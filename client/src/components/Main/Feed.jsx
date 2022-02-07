@@ -3,6 +3,7 @@ import NavBar from "./NavBar";
 import articles from "../articles";
 import axios from "axios";
 import moment from "moment";
+import './feed.css'
 const Feed = () => {
   const [data, setData] = useState(articles);
   // console.log("f5", data);
@@ -69,3 +70,4 @@ const Feed = () => {
 };
 
 export default Feed;
+

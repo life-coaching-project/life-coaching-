@@ -5,7 +5,6 @@ import NavBar from "./NavBar";
 import "./PostBlog.css";
 import { storage } from "../../Firebase";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
-
 // class PostBlogs extends React.Component {
 //   constructor(props) {
 //     super(props);

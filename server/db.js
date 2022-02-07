@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const mongoUri = "mongodb://localhost/test";
+const mongoUri = "mongodb://localhost/mvp";
 module.exports = () => {
   const connectionParams = {
     useNewUrlParser: true,

@@ -42,7 +42,7 @@ const Login = () => {
           response.data === "Invalid Email or Password"
         ) {
           alert("Invalid Password");
-          navigate("/login");
+          navigate.push("/login");
         } else if (response.data === "logged in successfully")
           setUser(data.email);
         navigate("/profil");

@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./index.css";
+
 function Feedback(props) {
   const [feedback, setfeedback] = useState([]);
   const [i, seti] = useState(1);
@@ -16,7 +17,7 @@ function Feedback(props) {
       .catch((error) => console.log(error));
   }, []);
   return (
-    <div id="finalFeedback">
+    <div id="heading">
       thank you for filling our survey seriously; it appears to us after
       carefully reviewing your answers that more attentivness is needed for the
       emotional aspect of your life which is why due to our review more
